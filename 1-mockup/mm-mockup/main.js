@@ -5,14 +5,14 @@ class Mockup extends HTMLElement {
 
 		this.shadow = this.attachShadow({ mode: 'open' });
 
-		let currentLocation = document.currentScript.src.split('/')
+		let currentLocation = Mockup.DOCUMENT.src.split('/')
 		currentLocation.pop();
 		this.currentLocation = currentLocation.join('/');
 
 	}
 
 	connectedCallback() {
-		let template = document.currentScript.ownerDocument.querySelector('#tmpl-mockup').content.cloneNode(true);
+		let template = Mockup.DOCUMENT.ownerDocument.querySelector('#tmpl-mockup').content.cloneNode(true);
 		template.querySelector('h1').innerHTML = this.attributes.text.value;
 		template.querySelector('img').src = this.attributes.image.value;
 		template.querySelector('link').href = this.currentLocation + '/main.css';
@@ -20,5 +20,7 @@ class Mockup extends HTMLElement {
 		this.shadow.appendChild(template);
 	}
 }
+
+Mockup.DOCUMENT = document.currentScript;
 
 window.customElements.define('mm-mockup', Mockup);

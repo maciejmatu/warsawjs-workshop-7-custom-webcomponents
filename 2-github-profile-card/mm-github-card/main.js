@@ -6,13 +6,13 @@ class GithubCard extends HTMLElement {
 		this.MAX_LIST_LENGTH = 9;
 		this.shadow = this.attachShadow({ mode: 'open' });
 
-		let currentLocation = document.currentScript.src.split('/')
+		let currentLocation = GithubCard.DOCUMENT.src.split('/')
 		currentLocation.pop();
 		this.currentLocation = currentLocation.join('/');
 	}
 
 	connectedCallback() {
-		this.document = document.currentScript.ownerDocument;
+		this.document = GithubCard.DOCUMENT.ownerDocument;
 		this.document.querySelector('#card').content.querySelector('link').href =  this.currentLocation + '/main.css';
 
 		this.stringTemplate = this.document.querySelector('#card').innerHTML;
@@ -74,5 +74,7 @@ class GithubCard extends HTMLElement {
         }
 	}
 }
+
+GithubCard.DOCUMENT = document.currentScript;
 
 window.customElements.define('mm-github-card', GithubCard);
