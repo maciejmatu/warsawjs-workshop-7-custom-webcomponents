@@ -1,0 +1,18 @@
+<template id="card">
+	<link rel="stylesheet" href="./mm-github-card/main.css"/>
+
+    <img class="profile-avatar" src="{{ avatar_url }}" alt="profile image" />
+    <h1 class="profile-name">{{ name }}</h1>
+    <p class="profile-bio">{{ bio }}</p>
+    <h2 class="profile-location">{{ location }}</h2>
+    <ul class="profile-repository-list"></ul>
+</template>
+
+<template id="card-li">
+	<li>
+		<span class="stars">{{ stargazers_count }} ⭐</span>
+		<a href="{{ html_url }}" target="_blank">{{ name }}</a>
+	</li>
+</template>
+
+<script src="main.js"></script>

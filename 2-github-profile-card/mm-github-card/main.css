@@ -1,0 +1,89 @@
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+:host {
+    font-family: 'Open Sans', sans-serif;
+    display: inline-block;
+    width: 550px;
+    height: 300px;
+    background-color: #2ecc71;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+    border: 1px solid #27ae60;
+    text-align: left;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px 100% 100% 10px;
+    float: left;
+    margin: 0 20px 0 0;
+    background: black;
+}
+
+h1 {
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 16px;
+    color: black;
+}
+
+p {
+    font-size: 16px;
+    margin: 0;
+    color: black;
+}
+
+hr {
+    margin: 20px 0 10px 0;
+}
+
+ul {
+    text-align: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+	margin-top: 50px;
+
+    display: grid;
+
+    grid-template-columns: 180px 180px 180px;
+    grid-template-rows: 40px 40px 40px;
+    grid-column-gap: 5px;
+}
+
+ul li {
+    margin: 0;
+    font-size: 13px;
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+ul li span {
+    display: inline-block;
+    background: #27ae60;
+    border-radius: 3px;
+    width: 45px;
+    text-align: center;
+    vertical-align: top;
+    color: white;
+}
+
+ul li a {
+	padding: 5px;
+    display: inline-block;
+    width: 130px;
+    color: black;
+}
+
+ul li a:hover {
+    background: black;
+    color: white;
+}
