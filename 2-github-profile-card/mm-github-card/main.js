@@ -5,10 +5,15 @@ class GithubCard extends HTMLElement {
 
 		this.MAX_LIST_LENGTH = 9;
 		this.shadow = this.attachShadow({ mode: 'open' });
+
+		let currentLocation = document.currentScript.src.split('/')
+		currentLocation.pop();
+		this.currentLocation = currentLocation.join('/');
 	}
 
 	connectedCallback() {
 		this.document = document.currentScript.ownerDocument;
+		this.document.querySelector('#card').content.querySelector('link').href =  this.currentLocation + '/main.css';
 
 		this.stringTemplate = this.document.querySelector('#card').innerHTML;
 		this.listItemTemplate = this.document.querySelector('#card-li').innerHTML;
@@ -19,7 +24,6 @@ class GithubCard extends HTMLElement {
 	}
 
 	_renderRepos(repos) {
-		console.log(repos);
 		const generated = repos.map(repo => this._tmpl(this.listItemTemplate, repo));
 		this.shadow.querySelector('.profile-repository-list').innerHTML = generated.join('');
 	}
